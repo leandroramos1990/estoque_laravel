@@ -27,6 +27,9 @@ class ProdutoController extends Controller {
 
   function salvar(Request $request){
     $params = $request->all();
+
+    $this->validateRequest($request);
+
     $produto = new Produto($params);
     $produto->save();
     return redirect('/produtos')->withInput();
@@ -41,6 +44,13 @@ class ProdutoController extends Controller {
   function getProdutos(){
     $produtos = Produto::all();
     return response()->json($produtos);
+  }
+
+  public function validateRequest($request){
+    $this->validate($request, [
+       'nome' => 'required|max:255',
+       'nome.required' => 'O nome é obrigatório'
+    ]);
   }
 
 }

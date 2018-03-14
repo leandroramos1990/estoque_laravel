@@ -10,7 +10,7 @@ class Produto extends Model {
   public $timestamps = false;
 
   //Aqui seta os campos aceitos via request
-  protected $fillable = array('nome', 'valor','quantidade');
+  protected $fillable = array('nome', 'valor','quantidade', 'tamanho');
 
   protected $guarded = ['id'];
 

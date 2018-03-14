@@ -14,8 +14,9 @@
       <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Tamanho</th>
           <th scope="col">See</th>
           <th scope="col">Delete</th>
         </tr>
@@ -25,6 +26,7 @@
         <tr>
           <th scope="row">{{ $p->nome }}</th>
           <td>{{ $p->valor }}</td>
+          <td>{{ $p->tamanho }}</td>
 
           <td>
             <a href="{{action('ProdutoController@visualizar', $p->id)}}">
