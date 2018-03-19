@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-	<link href="/css/app.css" rel="stylesheet">
+	<link href="/estoque_laravel/css/app.css" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -44,7 +44,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="/auth/logout">Logout</a></li>
+								<li><a href="/estoque_laravel/auth/logout">Logout</a></li>
 							</ul>
 						</li>
 					@endif

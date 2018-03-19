@@ -5,8 +5,13 @@ namespace estoque\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use estoque\Produto;
+use estoque\Http\Requests\ProdutoRequest;
 
 class ProdutoController extends Controller {
+
+  public function __construct() {
+		$this->middleware('autorizador');
+	}
 
   function lista(){
     $produtos = Produto::all();
@@ -25,11 +30,8 @@ class ProdutoController extends Controller {
     return view('produtos/formulario');
   }
 
-  function salvar(Request $request){
+  function salvar(ProdutoRequest $request){
     $params = $request->all();
-
-    $this->validateRequest($request);
-
     $produto = new Produto($params);
     $produto->save();
     return redirect('/produtos')->withInput();
@@ -44,13 +46,6 @@ class ProdutoController extends Controller {
   function getProdutos(){
     $produtos = Produto::all();
     return response()->json($produtos);
-  }
-
-  public function validateRequest($request){
-    $this->validate($request, [
-       'nome' => 'required|max:255',
-       'nome.required' => 'O nome é obrigatório'
-    ]);
   }
 
 }

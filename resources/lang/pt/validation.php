@@ -95,6 +95,10 @@ return [
 			'required' => 'O campo nome é obrigatório',
 		],
 
+		'valor' => [
+			'required' => 'O campo valor é obrigatório',
+		],
+
 	],
 
 	/*

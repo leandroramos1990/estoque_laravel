@@ -26,6 +26,10 @@ Route::get('/produtos/deletar/{id}', 'ProdutoController@deletar');
 /** Produtos api **/
 Route::get('/api/produtos', 'ProdutoController@getProdutos');
 
+/** Login **/
+Route::get('/login', 'LoginController@form');
+Route::post('/login_validate', 'LoginController@loginValidate');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

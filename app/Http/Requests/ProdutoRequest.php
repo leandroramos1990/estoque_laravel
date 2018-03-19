@@ -11,7 +11,7 @@ class ProdutoRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -22,7 +22,16 @@ class ProdutoRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+       'nome' => 'required|min:3:|max:255',
+       'valor' => 'required|numeric',
+			 'quantidade' => 'required|numeric'
+    ];
+
+	}
+
+	public function messages(){
+		return [
+			'required' => 'O campo :attribute é obrigatório!'	
 		];
 	}
 
