@@ -38,6 +38,15 @@
         <input type="text" class="form-control" name="tamanho" placeholder="Tamanho">
       </div>
 
+      <div class="form-group">
+        <label for="tamanho">Categoria</label>
+        <select class="form-control" name="categoria_id">
+          @foreach($categorias as $cat)
+            <option value="{{$cat->id}}">{{$cat->nome}}</option>
+          @endforeach
+        </select>
+      </div>
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

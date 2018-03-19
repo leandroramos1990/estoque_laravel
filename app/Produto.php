@@ -10,11 +10,13 @@ class Produto extends Model {
   public $timestamps = false;
 
   //Aqui seta os campos aceitos via request
-  protected $fillable = array('nome', 'valor','quantidade', 'tamanho');
+  protected $fillable = array('nome', 'valor','quantidade', 'tamanho','categoria_id');
 
   protected $guarded = ['id'];
 
-
+  public function categoria(){
+    return $this->belongsTo('estoque\Categoria');
+  }
 }
 
 ?>

@@ -5,6 +5,7 @@ namespace estoque\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use estoque\Produto;
+use estoque\Categoria;
 use estoque\Http\Requests\ProdutoRequest;
 
 class ProdutoController extends Controller {
@@ -27,7 +28,8 @@ class ProdutoController extends Controller {
   }
 
   public function formulario(){
-    return view('produtos/formulario');
+    $categorias = Categoria::all();
+    return view('produtos/formulario')->with('categorias', $categorias);
   }
 
   function salvar(ProdutoRequest $request){
